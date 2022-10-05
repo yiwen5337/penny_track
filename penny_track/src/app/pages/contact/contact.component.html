@@ -1,0 +1,160 @@
+<!-- Body -->
+<div class="wrapper">
+
+  <!-- Content -->
+  <div class="section section-tabs">
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h1 class="profile-title text-left">Contact Us</h1>
+              </div>
+              <div class="card-body">
+                <form class="form" [formGroup]="contactform" (ngSubmit)="send(contactform)">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Your Name </label>
+                        <input class="form-control" type="text" placeholder="your name"formControlName="name" />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Your Email </label>
+                        <input class="form-control" placeholder="your email" type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <span *ngIf="f.email.errors">
+                          <span *ngIf="f.email.errors.required" style="color: rgb(255, 100, 100); font-size: x-small; position: absolute; right: 5%; top: 60%;">
+                            Required
+                          </span>
+                          <span *ngIf="f.email.errors.email" style="color: rgb(255, 100, 100); font-size: x-small; position: absolute; right: 5%; top: 60%;">
+                            Invalid
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <script src="https://smtpjs.com/v3/smtp.js">
+                    </script>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Your Contact </label>
+                        <input class="form-control" type="tel" placeholder="01x-xxxxxxx" formControlName="phone"/>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Type </label> <br/>
+                        <div class="form-check form-check-radio form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" formControlName="type" id="inlineRadio1"
+                              value="0"> Support
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-radio form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" formControlName="type" id="inlineRadio2"
+                              value="1"> Feedback
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Message </label>
+                        <textarea class="form-control" placeholder="Your message" type="text" formControlName="message" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <alert *ngIf="contactError" class="alert-with-icon" [type]="'warning alert-with-icon'">
+                    <span class=" tim-icons icon-alert-circle-exc" data-notify="icon">
+                    </span>
+                    <span [innerHtml]="contactError"></span>
+                  </alert>
+
+                  <alert *ngIf="contactSuccess" class="alert-with-icon" [type]="'success alert-with-icon'">
+                    <span class=" tim-icons icon-check-2" data-notify="icon">
+                    </span>
+                    <span [innerHtml]="contactSuccess"></span>
+                  </alert>
+
+                  <button class="btn btn-warning btn-round float-right" placement="right" type="submit" disabled>
+                    Send
+                  </button>
+                </form>
+                
+              </div>
+              <div style="margin-left: 3%;">
+                <span class="icon icon-danger">
+                  <i class="tim-icons icon-alert-circle-exc"> </i>
+                </span>
+                <p>The SMTP server is currently under maintenance.</p>
+                <p>Please directly <a class=" alert-link" href="mailto:0195529@student.kdupg.edu.my" target="blank">
+                  Email
+                </a> us via mailbox.</p>
+                <p>Apologies for the inconvenience.</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto"> 
+            <div class="info info-horizontal" style="padding:70px 0 30px !important">
+              <div class="icon icon-danger">
+                <i class="tim-icons icon-square-pin"> </i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Find us at</h4>
+                <p>
+                  32, Jalan Anson, George Town,<br />
+
+                  10400 George Town, <br />
+
+                  Pulau Pinang
+                </p>
+                <span>-> </span><a href="https://goo.gl/maps/rH2JZ7y2AM1f7Pn77" target="blank">Google map</a>
+              </div>
+            </div>
+            <div class="info info-horizontal" style="padding:30px 0 30px !important">
+              <div class="icon icon-danger">
+                <i class="tim-icons icon-mobile"> </i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Give us a ring</h4>
+                <p>
+                  Mr. Chooi Yi Wen <br />
+
+                  +60 17-8178990 <br />
+
+                  Mon - Fri, 9:00-21:00
+                </p>
+              </div>
+            </div>
+            <div class="info info-horizontal" style="padding:30px 0 30px !important">
+              <div class="icon icon-danger">
+                <i class="tim-icons icon-email-85"> </i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Email us</h4>
+                <p>
+                  Penny Track Support <br />
+
+                  0195529@student.kdupg.edu.my <br />
+
+                  Mon - Fri, 24 hours
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
