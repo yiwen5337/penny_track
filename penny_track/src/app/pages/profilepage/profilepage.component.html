@@ -1,0 +1,75 @@
+<!-- Body -->
+<div class="wrapper">
+  <div class="page-header">
+    <img class="dots" src="assets/img/dots.png" />
+    <img class="path" src="assets/img/path4.png" />
+    
+    <div class="container align-items-center">
+      <div class="row">
+              
+        <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+          <div class="card card-coin card-plain">
+            <div *ngFor="let user of users" class="card-header">
+              <img
+                class="img-center img-fluid rounded-circle"
+                src="assets/img/logo-coin_only.png"
+              />
+
+              <h1 class="title">{{ user.userName }}</h1>
+
+            </div>
+            <div class="card-body" *ngFor="let user of users" style="margin-bottom: 10%;">
+            
+              <div style="text-align: center;  margin-top: 10%;">
+                <p class="text-muted">Your Email</p>
+                <p class="display-4">{{ user.userEmail }}</p>
+              </div>
+
+              <div style="text-align: center; margin-top: 10%;">
+                <p class="text-muted">Thank Your For Choosing Our Service Since</p>
+                <p class="display-4">{{ user.createDTTM | date: 'shortDate' }}</p>
+              </div>
+ 
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="container align-items-center">
+
+    <div class="row">
+  
+      <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+        <div class="card card-coin card-plain">
+          
+          <div class="card-body" style="margin-bottom: 10%;">
+          
+            <div style="text-align: center;  margin-top: 10%;">
+              <p class="display-4 text-muted">Total</p>
+              <p class="display-1">{{ saving }}</p>
+              <p style="color: lightgreen;">Saving</p>
+              <p class="text-muted">Recorded from your account</p>
+            </div>
+  
+            <div style="text-align: center; margin-top: 10%;">
+              <p class="display-4 text-muted">Total</p>
+              <p class="display-1">{{ spending }}</p>
+              <p style="color: hotpink;">Spending</p>
+              <p class="text-muted">Recorded from your account</p>
+            </div>
+            
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+  </div>
+
+  
+
+</div>

@@ -1,0 +1,131 @@
+<!-- Body -->
+<div class="wrapper">
+
+  <section class="section section-lg">
+    <div style="margin-top: 50px;"></div>
+
+    <div class="col-md-12">
+      <div class="card card-chart card-plain">
+        <div class="card-header justify-content-center">
+
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <button type="button" class="btn btn-primary btn-round btn-neutral" (click)="applyFilter(0)">All Time</button>
+              <button type="button" class="btn btn-primary btn-round btn-neutral" (click)="applyFilter(1)">1 Month</button>
+              <button type="button" class="btn btn-primary btn-round btn-neutral" (click)="applyFilter(2)">7 Days</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-left">
+
+              <hr class="line-primary" />
+
+              <div class="mb-3">
+                <small class="text-uppercase font-weight-bold text-muted">
+                  Insight
+                </small>
+              </div>
+
+              <h2 class="card-title">{{ insTitle }}</h2>
+            </div>
+          </div>
+
+        </div>
+
+        <div *ngIf="noChart" class="card-body">
+          <div style="text-align: center;">
+            <p class="display-4 text-muted">No data to show yet</p>
+          </div>
+        </div>
+
+        <div *ngIf="!noChart" class="card-body">
+          <div class="chart-area">
+            <canvas id="chartBig"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards holder -->
+  <div class="section section-tabs">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ml-auto col-xl-12 mr-auto">
+
+          <!-- Sestion 1 -->
+          <div class="mb-3">
+            <small class="text-uppercase font-weight-bold">
+              All Insight Details - All Time
+            </small>
+          </div>
+          <div class="card">
+            <div class="card-header">
+
+              <div class="row">
+                <div class="col-md-3" style="text-align: center;">
+                  <ul class="list-unstyled text-left">
+                    <p class="display-5">Categories</p> 
+                    <ul *ngFor="let category of categories">
+                      <li class="text-muted">{{ category.category }} -</li>
+                    </ul>
+                  </ul>
+                </div>
+
+                <div class="col-md-1 col-6" style="text-align: center;">
+                  <div class="list-unstyled text-left">
+                    <p class="display-5">Savings</p> 
+                    <div *ngFor="let savcatper of savingsCats">
+                      <p style="margin: 0; color: lightgreen;">{{ savcatper }} %</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2 col-6" style="text-align: center;">
+                  <div class="list-unstyled text-left">
+                    <p class="display-5">Spendings</p> 
+                    <div *ngFor="let spencatper of spendingsCats">
+                      <p style="margin: 0; color: hotpink;">{{ spencatper }} %</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 align-self-center" style="text-align: center; margin-top: 2em; margin-bottom: 2em;">
+                  <i class="tim-icons icon-money-coins" style="color: gold;"></i>
+                  <p class="text-muted">Total</p>
+                  <p class="display-3">RM<b> {{ total }} </b></p>
+                  <p class="text-muted" style="margin-bottom: 12%;">Balance is recorded</p>
+
+                  <i class="tim-icons icon-tag" style="color: orange;"></i>
+                  <p class="text-muted">Compare Previous 1 Month</p>
+                  <p class="display-3">RM<b> {{ comparesub }} </b></p>
+                  <p *ngIf="compareText" class="text-muted"><span style="color: yellow">Greater</span> nor <span style="color: yellow;">Lesser</span> saving</p>
+                  <p *ngIf="overspendText" class="text-muted"><span style="color: hotpink;">Lesser</span> saving</p>
+                  <p *ngIf="savedText" class="text-muted"><span style="color: lightgreen">Greater</span> saving</p>
+                  
+                </div>
+
+                <div class="col-md-3 align-self-center" style="text-align: center; margin-top: 2em; margin-bottom: 2em;">
+                  <i class="tim-icons icon-coins" style="color: lightskyblue;"></i>
+                  <p class="text-muted">Subtotal</p>
+                  <p class="display-4">RM<b> {{ savingsub }} </b></p>
+                  <p class="text-muted" style="margin-bottom: 20%;"><span style="color: lightgreen">Savings</span> are recorded</p>
+                  
+                  <i class="tim-icons icon-bag-16" style="color: plum;"></i>
+                  <p class="text-muted">Subtotal</p>
+                  <p class="display-4">RM<b> {{ spendingsub }} </b></p>
+                  <p class="text-muted"><span style="color: hotpink;">Spendings</span> are recorded</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

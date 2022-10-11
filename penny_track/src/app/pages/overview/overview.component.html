@@ -1,0 +1,89 @@
+<!-- Body -->
+<div class="wrapper">
+
+  <!-- Big banner -->
+  <div class="page-header header-filter">
+    <div class="squares square1"></div>
+    <div class="squares square2"></div>
+    <div class="squares square3"></div>
+    <div class="squares square4"></div>
+    <div class="squares square5"></div>
+    <div class="squares square6"></div>
+    <div class="squares square7"></div>
+    <div class="container">
+      <div class="content-center brand">
+        <img alt="Penny Track Logo" src="./assets/img/logo-full.png" width="500">
+
+        <h3>
+          Penny Track. An easy-to-use smart expenses tracker with every essential features you needed.
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="section">
+    <div class="container">
+
+      <div class="row justify-content-between">
+        <div class="col-md-6">
+          <div class="row justify-content-between align-items-center">
+            <carousel [showIndicators]="true">
+              <slide>
+                <img
+                  alt="First slide"
+                  class="d-block"
+                  src="assets/img/overview.png"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Overview Page</h5>
+                </div>
+              </slide>
+              <slide>
+                <img
+                  alt="Second slide"
+                  class="d-block"
+                  src="assets/img/target.png"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Targeting System</h5>
+                </div>
+              </slide>
+              <slide>
+                <img
+                  alt="Third slide"
+                  class="d-block"
+                  src="assets/img/insight.png"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Insight Page</h5>
+                </div>
+              </slide>
+            </carousel>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h1 class="profile-title text-left">What we are</h1>
+          <p class="profile-description text-left">
+            Panny track is a easy-to-us expense tracker that aim to provide the simple and effective
+            tracking service to any kind of user.<br> As we are honor to providing some useful core features
+            for improving your expense management experience in a more helpful way.
+          </p>
+          <div class="btn-wrapper pt-3">
+            <button
+              class="btn btn-simple btn-danger mr-1"
+              [routerLink]="['/about']"
+            >
+              <i class="tim-icons icon-bulb-63"> </i> Learn More
+            </button>
+            
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>
